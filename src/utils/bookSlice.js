@@ -153,6 +153,7 @@ const bookSlice = createSlice({
             rating: 4.8,
             category: "Sci-Fi",
           },
+          // Biography
           {
             id: "17",
             image: "/images/young_girl.webp",
@@ -189,6 +190,7 @@ const bookSlice = createSlice({
             rating: 4.7,
             category: "Biography",
           },
+          // Horror
           {
             id: "21",
             image: "/images/the_shining.jpg",
@@ -225,6 +227,7 @@ const bookSlice = createSlice({
             rating: 4.5,
             category: "Horror"
           },
+          // Mystery
           {
             id: "25",
             image: "/images/gone_girl.jpg",
@@ -252,6 +255,7 @@ const bookSlice = createSlice({
             rating: 4.4,
             category: "Mystery"
           },
+          // Mythology
           {
             id: "28",
             image: "/images/krishna.jpg",
@@ -297,6 +301,7 @@ const bookSlice = createSlice({
             rating: 4.8,
             category: "Mythology"
           },
+          // Technology
           {
             id: "33",
             image: "/images/clean_code.jpg",

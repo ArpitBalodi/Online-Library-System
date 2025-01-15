@@ -13,8 +13,12 @@ function AddBook() {
 
 
   const handleChange = (e) => {
-    setBookDetails({...bookDetails,[e.target.name]: e.target.value,});
+    const fieldName = e.target.name; // Get the name of the field
+    const fieldValue = e.target.value; // Get the value of the field
+  
+    setBookDetails((prevDetails) => ({...prevDetails,[fieldName]: fieldValue,}));
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,14 +43,17 @@ function AddBook() {
       reader.onload = () => {
         setBookDetails((prevDetails) => ({
           ...prevDetails,
-          image: reader.result, // Convert image to Base64
+          // Convert image to Base64
+          image: reader.result, 
         }));
-        setImage(reader.result); // Set image preview
+        // Set image preview
+        setImage(reader.result); 
       };
-      reader.readAsDataURL(file); // Convert file to Base64 string
+      // Convert file to Base64 string
+      reader.readAsDataURL(file); 
     } else {
       alert("Please upload a valid image file (jpg, png, etc.).");
-      e.target.value = ""; // Clear the file input
+      e.target.value = ""; 
     }
   };
 
@@ -58,42 +65,19 @@ function AddBook() {
       >
         <h1 className="text-2xl font-bold mb-4">Add New Book</h1>
 
-        <input type="text" name="title" placeholder="Book Title"
-          value={bookDetails.title}
-          onChange={handleChange}
-          className="border p-2 rounded"
-          required/>
+        <input type="text" name="title" placeholder="Book Title" className="border p-2 rounded" value={bookDetails.title} onChange={handleChange} required/>
 
-        <input type="text" name="author" placeholder="Author Name" value={bookDetails.author}
-          onChange={handleChange}
-          className="border p-2 rounded"
-          required/>
+        <input type="text" name="author" placeholder="Author Name" value={bookDetails.author} className="border p-2 rounded" onChange={handleChange} required/>
 
-        <textarea name="description"placeholder="Book Description"
-          value={bookDetails.description}
-          onChange={handleChange}
-          className="border p-2 rounded"
-          required/>
+        <textarea className="border p-2 rounded" name="description"placeholder="Book Description" value={bookDetails.description} onChange={handleChange} required/>
 
-        <input type="number" step="0.1" name="rating" placeholder="Rating (e.g., 4.5)" max={5} min={0}
-          value={bookDetails.rating}
-          onChange={handleChange}
-          className="border p-2 rounded"
-          required/>
+        <input className="border p-2 rounded" placeholder="Rating (e.g., 4.5)" type="number" step="0.1" name="rating" max={5} min={0} value={bookDetails.rating} onChange={handleChange} required/>
 
-        <input type="text" name="category" placeholder="Category (e.g., Fiction)"
-          value={bookDetails.category}
-          onChange={handleChange}
-          className="border p-2 rounded"
-          required
-        />
+        <input type="text" name="category" placeholder="Category (e.g., Fiction)" className="border p-2 rounded" value={bookDetails.category} onChange={handleChange} required/>
 
         <label>Book Image</label>
-        <input type="file"
-          accept="image/*"
-          onChange={handleImageUpload}
-          required
-        />
+        <input type="file" accept="image/*"onChange={handleImageUpload} required/>
+
         <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">
           Add Book
         </button>

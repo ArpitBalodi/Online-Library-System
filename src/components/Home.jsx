@@ -28,7 +28,7 @@ function Home() {
       <h1 className="flex justify-center items-center h-28 text-4xl text-white w-full mt-40 mb-5">Welcome to the Bookstore!</h1>
 
         <h1 className=" underline w-full text-4xl font-bold mb-5 flex justify-center">Book Category</h1>
-      <div className=" flex flex-col m-5 pl-10 pr-10 pt-10 w-3/4 bg-[#F5ECD5] mb-20">
+      <div className=" flex flex-col m-5 pl-8 pr-8 pt-8 w-3/4 bg-[#F5ECD5] mb-20 rounded">
 
 
         <div className="relative">
